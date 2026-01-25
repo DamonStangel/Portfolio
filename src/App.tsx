@@ -1,7 +1,7 @@
 import { useState, useEffect,useLayoutEffect } from "react";
 import "./App.css";
 import suitPic from "./assets/group-43.jpg";
-import ChillNightWithTheDogs from "./assets/ChillNightWithTheDogs.PNG"
+import ChillNightWithTheDogs from "./assets/ChillNightWithTheDogs.png"
 import oldIcon from "./assets/oldIcon.png";
 import bsuFlowers from "./assets/bsuFlowers.jpg";
 import famPic from "./assets/famPic.png";

@@ -1,20 +1,22 @@
 import { useState, useEffect,useLayoutEffect } from "react";
 import "./App.css";
-import icon from "./assets/icon.jpg";
+import suitPic from "./assets/group-43.jpg";
+import ChillNightWithTheDogs from "./assets/ChillNightWithTheDogs.PNG"
 import oldIcon from "./assets/oldIcon.png";
 import bsuFlowers from "./assets/bsuFlowers.jpg";
 import famPic from "./assets/famPic.png";
 // import project1Image from "./assets/famPic.png";
 // import retroGameBG from "./assets/animatedRetroGameBG.gif";
 
-const images = [icon, oldIcon, bsuFlowers, famPic];
+const images = [suitPic, ChillNightWithTheDogs, oldIcon, bsuFlowers, famPic];
 
 // const projectLinks = [
 //   { url: "https://github.com/yourusername/project1", image: project1Image }
 // ];
 
+// console.log("If you're reading this why are you snooping in my bidness!? Since you're so nosey check this out: https://www.youtube.com/watch?v=xvFZjo5PgG0");
+
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem("theme") !== "light";
   });
@@ -39,15 +41,6 @@ function App() {
     });
 
     return () => observer.disconnect();
-  }, []);
-  
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
   }, []);
 
   useLayoutEffect(() => {
@@ -92,7 +85,7 @@ function App() {
     <div className="aboutList">
       {/* Circular Image */}
       <div className="image-container">
-        <img src={icon} alt="Profile Image" />
+        <img src={suitPic} alt="Profile Image" />
       </div>
 
       {/* Text Content */}
@@ -180,7 +173,7 @@ function App() {
 </div>
   <div className="projectsGrid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                   <div className="project-tile">
-                    <div className="project-thumbnail mb-4 " onClick={() => window.open("https://github.com/DamonJuice", "_blank")}>
+                    <div className="project-thumbnail mb-4 " onClick={() => window.open("https://github.com/DamonStangel", "_blank")}>
                       <img 
                           src="https://opengraph.githubassets.com/1/" 
                           alt="Project X" 
@@ -196,13 +189,13 @@ function App() {
                     </div>
                       <h3 className="text-xl font-bold mb-2">Project X</h3>
                       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">WORK IN PROGRESS</p>
-                      <a href="https://github.com/DamonJuice" target="_blank" className="read-more">
+                      <a href="https://github.com/DamonStangel" target="_blank" className="read-more">
                           Find More{" "}   
                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="github" className="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                       </a>
                   </div>
                   <div className="project-tile">
-                    <div className="project-thumbnail mb-4 " onClick={() => window.open("https://github.com/DamonJuice", "_blank")}>
+                    <div className="project-thumbnail mb-4 " onClick={() => window.open("https://github.com/DamonStangel", "_blank")}>
                       <img 
                           src="https://opengraph.githubassets.com/1/" 
                           alt="Project X" 
@@ -218,7 +211,7 @@ function App() {
                     </div>
                       <h3 className="text-xl font-bold mb-2">Project Y</h3>
                       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Scheduled Project</p>
-                      <a href="https://github.com/DamonJuice" target="_blank" className="read-more">
+                      <a href="https://github.com/DamonStangel" target="_blank" className="read-more">
                           Find More{" "}   
                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="github" className="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                       </a>
@@ -233,7 +226,7 @@ function App() {
   <nav className="flex flex-wrap justify-center items-center gap-6 mt-4">
     
     {/* GitHub */}
-    <a href="https://github.com/DamonJuice" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+    <a href="https://github.com/DamonStangel" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
         <path d="M9 18c-4.51 2-5-2-7-2"></path>
@@ -290,7 +283,7 @@ function App() {
 
 </section>
 <footer id="footerSection">
-© 2025 Damon Stangel Portfolio. Built using React & Vite.
+© 2026 Damon Stangel Portfolio. Built using React & Vite.
 </footer>
     </>
   );

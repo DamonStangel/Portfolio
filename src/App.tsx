@@ -1,18 +1,26 @@
-import { useState, useEffect,useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import "./App.css";
 import suitPic from "./assets/group-43.jpg";
 import ChillNightWithTheDogs from "./assets/ChillNightWithTheDogs.png"
 import oldIcon from "./assets/oldIcon.png";
 import bsuFlowers from "./assets/bsuFlowers.jpg";
 import famPic from "./assets/famPic.png";
-// import project1Image from "./assets/famPic.png";
-// import retroGameBG from "./assets/animatedRetroGameBG.gif";
+import ceremonyPic from "./assets/ceremony-34.jpg";
+import couplesPic from "./assets/couples-02.jpg";
+import couplesPic2 from "./assets/couples-36.jpg";
+import DougPic from "./assets/DougOfficeChair.jpg";
+import backVid from "./assets/backVid.mp4";
+import group10 from "./assets/group-10.jpg";
+import group40 from "./assets/group-40.jpg";
+import hellcat from "./assets/hellcat.jpg";
+import IMG_0529 from "./assets/IMG_0529.jpg";
+import IMG_0543 from "./assets/IMG_0543.jpg";
+import IMG_0550 from "./assets/IMG_0550.jpg";
+import IMG_0624 from "./assets/IMG_0624.jpg";
+import scatty from "./assets/scatty.jpg";
+import updatedPic from "./assets/Updated Pic.jpg";
 
-const images = [suitPic, ChillNightWithTheDogs, oldIcon, bsuFlowers, famPic];
-
-// const projectLinks = [
-//   { url: "https://github.com/yourusername/project1", image: project1Image }
-// ];
+const images = [suitPic, bsuFlowers, ceremonyPic, DougPic, group10, ChillNightWithTheDogs, couplesPic, group40, oldIcon, famPic, hellcat, IMG_0529, couplesPic2, IMG_0543, IMG_0550, IMG_0624, scatty, updatedPic];
 
 // console.log("If you're reading this why are you snooping in my bidness!? Since you're so nosey check this out: https://www.youtube.com/watch?v=xvFZjo5PgG0");
 
@@ -21,6 +29,21 @@ function App() {
     return localStorage.getItem("theme") !== "light";
   });
 
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Interval for the gallery
+useEffect(() => {
+  const interval = setInterval(() => {
+    if (!isPaused) {
+      setCurrentImage(prev => (prev + 1) % images.length);
+    }
+  }, 5000); // 5s per image
+
+  return () => clearInterval(interval);
+}, [isPaused]);
+
+  // animates the screen after detecting using view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries, observer) => {
@@ -83,10 +106,40 @@ function App() {
   <h1> <i>About Me </i></h1>
   <div className="aboutSection">
     <div className="aboutList">
-      {/* Circular Image */}
-      <div className="image-container">
-        <img src={suitPic} alt="Profile Image" />
-      </div>
+<div className="image-container">
+  <img
+    src={images[currentImage]}
+    alt="Damon Stangel profile gallery"
+    width={360}
+    height={360}
+    loading="eager"
+    decoding="async"
+    onClick={() => setIsPaused(!isPaused)} // toggle pause
+  />
+
+  {/* Left arrow */}
+  <button
+    className="arrow left"
+    onClick={() => {
+      setIsPaused(true);
+      setCurrentImage(prev => (prev - 1 + images.length) % images.length);
+    }}
+  >
+    ◀
+  </button>
+
+  {/* Right arrow */}
+  <button
+    className="arrow right"
+    onClick={() => {
+      setIsPaused(true);
+      setCurrentImage(prev => (prev + 1) % images.length);
+    }}
+  >
+    ▶
+  </button>
+</div>
+
 
       {/* Text Content */}
       <div>
@@ -164,7 +217,27 @@ function App() {
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg" alt="JavaScript" className="tech-icon"/>
           </div>
 </section>
-<section id="projectsSection" className="section hidden">
+<section id="projectsSection" className="section hidden"      
+  style={{
+      minHeight: "30vh",
+      overflow: "hidden",
+    }}
+  >
+    {/* VIDEO BACKGROUND */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="projects-background-video"
+  >
+    <source src={backVid} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+    {/* CONTENT */}
+  <div className="container mx-auto px-4 max-w-6xl projects-container" style={{ position: "relative", zIndex: 1 }}>
+
 <div className="container mx-auto px-4 max-w-6xl projects-container">
 <div className="w-full text-center">
   <h1 className="text-4xl font-bold mb-8 font-space-mono">
@@ -218,73 +291,67 @@ function App() {
                   </div>
                 </div>
             </div>
+            </div>
 </section>
 <section id="contactSection" className="section hidden">
-<div className="text-center mt-10">
-  <h2 className="font-italic text-xl"><i><u>Contact Me</u></i></h2>
-  
-  <nav className="flex flex-wrap justify-center items-center gap-6 mt-4">
+  <div className="text-center mt-10">
+    <h2 className="font-italic text-xl"><i><u>Contact Me</u></i></h2>
     
-    {/* GitHub */}
-    <a href="https://github.com/DamonStangel" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-        <path d="M9 18c-4.51 2-5-2-7-2"></path>
-      </svg>
-      <span className="mt-1 text-sm font-semibold">{" "}  GitHub{" "}{" "}    </span>
-    </a>
+    <nav className="flex flex-wrap justify-center items-center gap-6 mt-4">
+      
+      {/* GitHub */}
+      <a href="https://github.com/DamonStangel" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+          <path d="M9 18c-4.51 2-5-2-7-2"></path>
+        </svg>
+        <span className="mt-1 text-sm font-semibold">{" "}  GitHub{" "}{" "}    </span>
+      </a>
 
-    {/* Resume */}
-    <a href="/resume.pdf" download="Damon Stangel Resume.pdf" className="flex flex-col items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
-        <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
-        <path d="M10 9H8"></path>
-        <path d="M16 13H8"></path>
-        <path d="M16 17H8"></path>
-      </svg>
-      <span className="mt-1 text-sm font-semibold">{" "}  Resume{" "}{" "}    </span>
-    </a>
+      {/* Resume */}
+      <a href="/resume.pdf" download="Damon Stangel Resume.pdf" className="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+          <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+          <path d="M10 9H8"></path>
+          <path d="M16 13H8"></path>
+          <path d="M16 17H8"></path>
+        </svg>
+        <span className="mt-1 text-sm font-semibold">{" "}  Resume{" "}{" "}    </span>
+      </a>
 
-    {/* LinkedIn */}
-    <a href="https://www.linkedin.com/in/damon-stangel-80155626b/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-        <rect width="4" height="12" x="2" y="9"></rect>
-        <circle cx="4" cy="4" r="2"></circle>
-      </svg>
-      <span className="mt-1 text-sm font-semibold">{" "}  LinkedIn{" "} {" "}   </span>
-    </a>
+      {/* LinkedIn */}
+      <a href="https://www.linkedin.com/in/damon-stangel-80155626b/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect width="4" height="12" x="2" y="9"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+        <span className="mt-1 text-sm font-semibold">{" "}  LinkedIn{" "} {" "}   </span>
+      </a>
 
-    {/* Instagram */}
-    <a href="https://instagram.com/damonjuice" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-      </svg>
-      <span className="mt-1 text-sm font-semibold">{" "}  Instagram{" "}{" "}    </span>
-    </a>
+      {/* Instagram */}
+      <a href="https://instagram.com/damonjuice" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+        </svg>
+        <span className="mt-1 text-sm font-semibold">{" "}  Instagram{" "}{" "}    </span>
+      </a>
 
-    {/* Email */}
-    <a href="mailto:damonstangel@gmail.com" className="flex flex-col items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-      </svg>
-      <span className="mt-1 text-sm font-semibold">{" "}  Contact{" "}{" "}    </span>
-    </a>
+      {/* Email */}
+      <a href="mailto:damonstangel@gmail.com" className="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </svg>
+        <span className="mt-1 text-sm font-semibold">{" "}  Contact{" "}{" "}    </span>
+      </a>
 
-  </nav>
-</div>
-
-
-
-
+    </nav>
+  </div>
 </section>
-<footer id="footerSection">
-© 2026 Damon Stangel Portfolio. Built using React & Vite.
-</footer>
     </>
   );
 }

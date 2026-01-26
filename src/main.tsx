@@ -1,11 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { StrictMode, useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
 
-function Links() {
+function LinksFooter() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -18,17 +18,18 @@ function Links() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   return (
-    <div className='rootDiv'> </div>
+    <div className='rootDiv'> 
+      <footer id="footerSection">
+        <p>© 2026 Damon Stangel Portfolio. Built with React & Vite. All rights reserved.</p>
+      </footer>
+    </div>
   );
 }
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Links />
     <App />
+    <LinksFooter/>
   </StrictMode>
 );

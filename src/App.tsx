@@ -152,11 +152,18 @@ useEffect(() => {
           </p>
           <p>I consider myself a skilled front-end developer and application
           developer, who's passionate about building interactive web
-          experiences and applications.</p>
+          experiences and applications. I've worked on high level applications like the {" "}
+           <a href="https://campaignmaps.mn.gov/" target="_blank" rel="noopener noreferrer">
+            <u>Minnesota Campaign Finance Board</u>
+          </a> 
+          .{" "}I contributed to UI work, backend features, interactive data visualization, mapping logic, and accessibility improvements.</p>
 
-        <p>
-          <b>What Interests Me: </b> In my free time I like to play video games and I love to workout. Playing basketball has always been a hobby of mine. Occasionally I like to go watch Minnesota Timberwolves games.
-        </p>
+
+          <p> <b>What Interests Me: </b> In my free time I love to workout and I like to play video games as well. Games like Escape From Tarkov, Arc Raiders, and NBA 2K I find enjoyable.</p> 
+          
+          <p>Playing basketball has always been a hobby of mine. Occasionally I like to go watch Minnesota Timberwolves games. I'm also a big mopar guy, see the Scat Pack Charger pic and a couple of my Durango Hellcat.</p>
+
+
 
       </div>
     </div>
@@ -241,7 +248,7 @@ useEffect(() => {
 <div className="container mx-auto px-4 max-w-6xl projects-container">
 <div className="w-full text-center">
   <h1 className="text-4xl font-bold mb-8 font-space-mono">
-    <i>Projects</i>
+    <i>Personal Projects</i>
   </h1>
 </div>
   <div className="projectsGrid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

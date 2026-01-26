@@ -221,6 +221,13 @@ padding-bottom: 20px;
 .listSkills h3 {
 text-align: center;
 text-decoration: underline;
+margin-left: 0px;
+margin-right: 10px;
+}
+
+ul {
+  text-align: left;
+  margin-left: 40px;
 }
 
 
@@ -775,6 +782,12 @@ h3 {
   .listSkills h3 {
     color: #ff9800;
     font-size: 1.2rem;
+    margin: 10px;
+  }
+
+  ul {
+  text-align: center;
+  margin-left: 0px;
   }
 
   .listSkills ul {
@@ -874,7 +887,7 @@ h3 {
       object-fit: cover;
       object-position: center 100%;
       width: 100vw;
-      height: 100vh;
+      /* height: 100vh; */
   }
 
 

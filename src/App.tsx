@@ -19,6 +19,7 @@ import IMG_0550 from "./assets/IMG_0550.jpg";
 import IMG_0624 from "./assets/IMG_0624.jpg";
 import scatty from "./assets/scatty.jpg";
 import updatedPic from "./assets/Updated Pic.jpg";
+import financeApp from "./assets/financeApp.png";
 
 const images = [suitPic, bsuFlowers, ceremonyPic, DougPic, group10, ChillNightWithTheDogs, couplesPic, group40, oldIcon, famPic, hellcat, IMG_0529, couplesPic2, IMG_0543, IMG_0550, IMG_0624, scatty, updatedPic];
 
@@ -253,7 +254,7 @@ useEffect(() => {
                   <div className="project-tile">
                     <div className="project-thumbnail mb-4 " onClick={() => window.open("https://github.com/DamonStangel/Personal-Finance-App", "_blank")}>
                       <img 
-                          src="https://opengraph.githubassets.com/1/" 
+                          src={financeApp} 
                           alt="Project X" 
                           className="w-full h-full object-cover"
                       />

@@ -275,7 +275,7 @@ useEffect(() => {
                       </a>
                   </div>
                   <div className="project-tile">
-                    <div className="project-thumbnail mb-4 " onClick={() => window.open("https://github.com/DamonStangel", "_blank")}>
+                    <div className="project-thumbnail mb-4 " onClick={() => window.open("https://github.com/DamonStangel/Personal-Nutrition-Tracker", "_blank")}>
                       <img 
                           src={nutritionApp} 
                           alt="Project Personal Nutrition Tracker" 
